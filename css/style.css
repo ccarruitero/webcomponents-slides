@@ -1,0 +1,14 @@
+.libs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.libs li {
+  list-style: none;
+  float: left;
+  margin: 0.5rem;
+}
+
+.info {
+  color: black;
+}

@@ -5,6 +5,8 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/black.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/css/zenburn.min.css'>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='css/style.css'>'
 </head>
 <body>
   <div class='reveal'>
@@ -18,36 +20,32 @@
       </section>
       <section>
         <h2>who I am?</h2>
-        <li class='fragment'>software developer ~8 years</li>
         <li class='fragment'>Mozillian, Mozilla Contributor</li>
+        <li class='fragment'>software developer ~8 years</li>
         <li class='fragment'>Open Source Contributor</li>
         <li class='fragment'>...</li>
-        <li class='fragment'></li>
       </section>
       <section>
         <h2>Mozilla</h2>
 				<img src='https://raw.githubusercontent.com/ccarruitero/rust_talk/master/slides/pictures/comunidad.jpg' />
       </section>
       <section>
-				<blockquote class="fragment">
+				<blockquote>
         a global community of people who believe that <strong>openness</strong>, <strong>innovation</strong>, and <strong>opportunity</strong> are key to the continued health of the Internet.
 </blockquote>
       </section>
       <section>
-        <h2> ... </h2><h1 class='fragment'>Web Components</h1>
+        <h1 class='fragment'>Web Components</h1>
         <h3></h3>
       </section>
       <section>
         <h2>why now?</h2>
       </section>
       <section>
-        <h2>is a web standard now</h2>
-        <ul>
-          <li class='fragment'>
-            <a href='https://developer.mozilla.org/en-US/docs/Web/Web_Components#Specifications'>
-              <img src='images/spec.png' />
-            </a>
-          </li>
+        <h2>is a web standard</h2>
+          <a class='fragment' href='https://developer.mozilla.org/en-US/docs/Web/Web_Components#Specifications'>
+            <img src='images/spec.png' />
+          </a>
       </section>
       <section>
         <h2>Browser Support</h2>
@@ -57,12 +55,12 @@
         <h2>simple syntax</h2>
 				<pre>
 					<code>
-class PopupInfo extends HTMLElement {
-	constructor() {}
-	connectedCallback() {}
-}
+    class PopupInfo extends HTMLElement {
+      constructor() {}
+      connectedCallback() {}
+    }
 
-customElements.define('popup-info', PopUpInfo);
+    customElements.define('popup-info', PopUpInfo);
 					</code>
 				</pre>
       </section>
@@ -70,19 +68,24 @@ customElements.define('popup-info', PopUpInfo);
         <h2>low level api</h2>
 				<li class='fragment'>can build framework on top</li>
 				<img class='fragment' src='images/aframe.png' />
-				<li class='fragment'></li>
-				<li class='fragment'>browser can optimize</li>
-        <!-- img -->
+				<li class='fragment'>browser can help optimize</li>
       </section>
 
       <section>
         <h2>Custom Elements</h2>
 				<ul>
-					<li class='fragment'>Autonomous custom element</li>
+					<li class='fragment'>
+            Autonomous custom element
+            <label class='fragment'>
+            <popup-info
+              class='fragment'
+              data-text='some awesome text'
+              img='file:///home/pavle/moz/web-components-examples/popup-info-box-web-component/img/alt.png'
+            >
+            </label>
+          </li>
 					<li class='fragment'>customized built-in element</li>
 				</ul>
-        <!-- line description -->
-        <!-- clickeable MDN gh demo -->
       </section>
       <section>
         <h2>Shadow DOM</h2>
@@ -91,39 +94,39 @@ customElements.define('popup-info', PopUpInfo);
       <section>
 				<pre class='javascript hljs' data-trim=''>
 				<code>
-// shadow root
-let shadow = elementRef.attachShadow({mode: 'open'});
+    // shadow root
+    let shadow = elementRef.attachShadow({mode: 'open'});
 				</code>
 				</pre>
 				<pre class='javascript hljs fragment' data-trim=''>
 				<code>
-// dom structure
-var wrapper = document.createElement('span');
-wrapper.setAttribute('class','wrapper');
+    // dom structure
+    var wrapper = document.createElement('span');
+    wrapper.setAttribute('class','wrapper');
 				</code>
 				</pre>
       </section>
       <section>
 				<pre class='javascript hljs fragment' data-trim=''>
 				<code>
-// some CSS to apply to the shadow dom
-var style = document.createElement('style');
+    // some CSS to apply to the shadow dom
+    var style = document.createElement('style');
 
-style.textContent = `
-.wrapper {
-  position: relative;
-}
-`;
+    style.textContent = `
+    .wrapper {
+      position: relative;
+    }
+    `;
 				</code>
 				</pre>
       </section>
       <section>
 				<pre class='javascript hljs fragment' data-trim data-noescape>
 				<code>
-// attach to shadow DOM
-shadow.appendChild(style);
-shadow.appendChild(wrapper);
-...
+    // attach to shadow DOM
+    shadow.appendChild(style);
+    shadow.appendChild(wrapper);
+    ...
 				</code>
 				</pre>
       </section>
@@ -165,13 +168,31 @@ shadow.appendChild(wrapper);
         <h2>polyfills</h2>
       </section>
       <section>
+        <h2>webcomponentsjs</h2>
+        <a href='https://github.com/WebComponents/webcomponentsjs'>
+          <i class='fa fa-github fragment'>WebComponents/webcomponentsjs</i>
+        </a>
+      </section>
+      <section>
+        <h2>frameworks / libraries </h2>
+        <ul class='libs'>
+          <li><img src='http://slimjs.com/ae609b6edbf39d3ccf48178b07c38443.png' /></li>
+          <li><img src='https://avatars2.githubusercontent.com/u/2159051?s=200&v=4' /></li>
+          <li><img src='https://pbs.twimg.com/profile_images/787964025116168193/i3N-sLc1_400x400.jpg' /></li>
+        </ul>
+
+      </section>
+      <section>
         <h2>what about my <br />framework / library</h2>
       </section>
       <section>
         <h2>Resources</h2>
         <ul>
-          <li><a href='https://github.com/mdn/web-components-examples'>MDN examples</a></li>
-          <li>
+          <li class='fragment'><a href='https://github.com/mdn/web-components-examples'>
+            <i class='fa fa-github'></i>
+          MDN examples
+          </a></li>
+          <li class='fragment'>
             <a href='https://developer.mozilla.org/en-US/docs/Web/Web_Components'>
               MDN Web Components
             </a>
@@ -184,6 +205,8 @@ shadow.appendChild(wrapper);
   <script src='js/highlight.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.min.js'></script>
   <script src='js/highlight-plugin.js'></script>
+  <script src='js/popup-info.js'></script>
+  <script src='js/expand.js'></script>
   <script>
     Reveal.initialize();
 		hljs.initHighlightingOnLoad();
